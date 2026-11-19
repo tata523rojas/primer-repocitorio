@@ -1,12 +1,13 @@
 :root {
-  --fondo-crema: #fff9fb;
-  --lila-fuerte: #7e57c2;
- --cielo-fuerte: #0288d1;
-  --lila-pastel: #efe8f8;
-  --menta-pastel: #e6f4ee;
-  --texto-oscuro: #4a3f45;
+  --morado-fuerte: #6a1b9a;
+  --azul-fuerte: #0277bd;
+  --lila-pastel: #ede7f6;
+  --azul-pastel: #e1f5fe;
+  --rosa-pastel: #fce4ec;
+  --menta-pastel: #e8f5e9;
+  --rosa-fuerte: #ad1457;
+  --texto-oscuro: #2c1654;
   --blanco: #ffffff;
- 
 }
 
 * {
@@ -17,9 +18,10 @@
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, var(--cielo-fuerte), var(lila-fuerte));
-  color: var(--texto oscuro);
+  background: linear-gradient(120deg, var(--morado-fuerte) 0%, var(--morado-fuerte) 48%, var(--azul-fuerte) 52%, var(--azul-fuerte) 100%);
+  color: var(--texto-oscuro);
   line-height: 1.6;
+  min-height: 100vh;
 }
 
 .contenedor {
@@ -39,7 +41,7 @@ body {
 
 .marca {
   font-size: 2.2rem;
-  color: #8f4660;
+  color: var(--morado-fuerte);
   margin-bottom: 6px;
 }
 
@@ -53,11 +55,11 @@ section {
   border-radius: 20px;
   padding: 24px;
   margin-bottom: 24px;
-  box-shadow: 0 6px 18px rgba(212, 122, 150, 0.12);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
 }
 
 h2 {
-  color: #8f4660;
+  color: var(--morado-fuerte);
   margin-bottom: 16px;
   font-size: 1.45rem;
 }
@@ -69,7 +71,7 @@ h2 {
 }
 
 .tarjeta-ramo {
-  background-color: var(--menta-pastel);
+  background-color: var(--lila-pastel);
   border-radius: 16px;
   padding: 16px;
   display: flex;
@@ -78,14 +80,26 @@ h2 {
   gap: 10px;
 }
 
+.tarjeta-ramo:nth-child(2) {
+  background-color: var(--azul-pastel);
+}
+
+.tarjeta-ramo:nth-child(3) {
+  background-color: var(--rosa-pastel);
+}
+
+.tarjeta-ramo:nth-child(4) {
+  background-color: var(--menta-pastel);
+}
+
 .tarjeta-ramo h3 {
   font-size: 1.1rem;
-  color: #3d5a4c;
+  color: var(--texto-oscuro);
 }
 
 .precio {
   font-weight: bold;
-  color: #8f4660;
+  color: var(--rosa-fuerte);
 }
 
 form {
@@ -119,7 +133,7 @@ select {
 }
 
 .btn-principal:hover {
-  background-color: #bd6380;
+  background-color: #880e4f;
 }
 
 #lista-carrito {
@@ -138,5 +152,7 @@ select {
 #total-pedido {
   font-size: 1.15rem;
   font-weight: bold;
-  color: #8f4660;
+  color: var(--morado-fuerte);
 }
+```[span_18](start_span)[span_18](end_span)[span_19](start_span)[span_19](end_span)[span_20](start_span)[span_20](end_span)[span_21](start_span)[span_21](end_span)[span_22](start_span)[span_22](end_span)[span_23](start_span)[span_23](end_span)[span_24](start_span)[span_24](end_span)
+
