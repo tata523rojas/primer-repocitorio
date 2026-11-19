@@ -142,7 +142,7 @@ select {
   color: #8f4660;
 }
 .imagen-hero{width: 100%;
-max-height: 300px;
+max-height: 450px;
 object-fit:cover;
 display: block;
 margin: 0 auto;
