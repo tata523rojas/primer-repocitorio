@@ -5,19 +5,179 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Amor en Detalle | Ramos de Rosas en Satín</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Refuerzos visuales para el botón de bienvenida, chat IA y contacto */
+    .barra-bienvenida {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .btn-bienvenida {
+      background-color: var(--morado-fuerte, #6a1b9a);
+      color: #ffffff;
+      border: none;
+      border-radius: 999px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+      transition: transform 0.15s ease, background-color 0.2s ease;
+    }
+
+    .btn-bienvenida:hover {
+      background-color: var(--azul-fuerte, #0277bd);
+      transform: scale(1.03);
+    }
+
+    .mensaje-bienvenida {
+      font-weight: 600;
+      color: var(--morado-fuerte, #6a1b9a);
+    }
+
+    .img-ramo {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 6px;
+      background-color: rgba(255, 255, 255, 0.65);
+    }
+
+    .chat-ia-box {
+      background-color: var(--lila-pastel, #ede7f6);
+      border-radius: 16px;
+      padding: 16px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .historial-chat {
+      max-height: 260px;
+      overflow-y: auto;
+      display: grid;
+      gap: 10px;
+      padding-right: 4px;
+    }
+
+    .burbuja-ia {
+      background-color: #ffffff;
+      color: var(--texto-oscuro, #2c1654);
+      padding: 10px 14px;
+      border-radius: 14px;
+      border-left: 4px solid var(--morado-fuerte, #6a1b9a);
+    }
+
+    .burbuja-usuario {
+      background-color: var(--azul-pastel, #e1f5fe);
+      color: var(--texto-oscuro, #2c1654);
+      padding: 10px 14px;
+      border-radius: 14px;
+      border-right: 4px solid var(--azul-fuerte, #0277bd);
+      text-align: right;
+    }
+
+    .chips-colores {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip-pastel {
+      background-color: var(--rosa-pastel, #fce4ec);
+      color: var(--texto-oscuro, #2c1654);
+      border: 1px solid rgba(106, 27, 154, 0.25);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .chip-pastel:hover {
+      background-color: var(--azul-pastel, #e1f5fe);
+    }
+
+    .fila-chat {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .fila-chat input {
+      flex: 1 1 220px;
+    }
+
+    .tarjeta-contacto {
+      margin-top: 16px;
+      background-color: var(--rosa-pastel, #fce4ec);
+      border-radius: 16px;
+      padding: 16px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .enlace-ws {
+      display: inline-block;
+      width: fit-content;
+      background-color: var(--morado-fuerte, #6a1b9a);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 12px;
+      font-weight: bold;
+    }
+
+    .enlace-ws:hover {
+      background-color: var(--azul-fuerte, #0277bd);
+    }
+  </style>
 </head>
 <body>
   <header class="encabezado">
     <div class="contenedor">
       <h1 class="marca">Amor en Detalle</h1>
       <p class="subtitulo">Ramos de rosas eternas en satín hechos a mano y personalizados</p>
+
+      <div class="barra-bienvenida">
+        <button type="button" id="btn-bienvenida" class="btn-bienvenida">
+          ✨ Bienvenido
+        </button>
+        <span id="texto-bienvenida" class="mensaje-bienvenida"></span>
+      </div>
     </div>
   </header>
 
   <main class="contenedor">
     <section class="catalogo">
       <h2>Nuestros Ramos</h2>
-      <div class="grid-ramos" id="lista-ramos"></div>
+      <div class="grid-ramos" id="lista-ramos">
+        <article class="tarjeta-ramo">
+          <!-- Cuando subas tus fotos a la carpeta images/, cambia el src por images/ramo1.jpg -->
+          <img class="img-ramo" src="images/ramo1.jpg" alt="Ramo Clásico Dulce en satín" onerror="this.style.display='none'" />
+          <h3>Ramo Clásico Dulce</h3>
+          <p>Rosas eternas en satín elaboradas a mano, suaves y delicadas.</p>
+          <p class="precio">$35.000</p>
+        </article>
+
+        <article class="tarjeta-ramo">
+          <img class="img-ramo" src="images/ramo2.jpg" alt="Ramo Romántico Satín" onerror="this.style.display='none'" />
+          <h3>Ramo Romántico Satín</h3>
+          <p>Ideal para sorprender con los tonos que tú elijas.</p>
+          <p class="precio">$40.000</p>
+        </article>
+
+        <article class="tarjeta-ramo">
+          <img class="img-ramo" src="images/ramo3.jpg" alt="Ramo Especial Sorpresa" onerror="this.style.display='none'" />
+          <h3>Ramo Especial Sorpresa</h3>
+          <p>Diseño personalizado con detalles especiales y acabado en satín.</p>
+          <p class="precio">$55.000</p>
+        </article>
+      </div>
     </section>
 
     <section class="personalizar">
@@ -27,6 +187,8 @@
         <select id="color-rosa" name="color-rosa">
           <option value="Rojo pasión">Rojo pasión</option>
           <option value="Rosa pastel">Rosa pastel</option>
+          <option value="Lila pastel">Lila pastel</option>
+          <option value="Azul cielo pastel">Azul cielo pastel</option>
           <option value="Blanco perla">Blanco perla</option>
           <option value="Vino tinto">Vino tinto</option>
         </select>
@@ -41,6 +203,39 @@
       </form>
     </section>
 
+    <section class="asistente-ia" id="asistente-ia">
+      <h2>Asistente Amor en Detalle (IA Interactiva)</h2>
+      <div class="chat-ia-box">
+        <div class="historial-chat" id="historial-chat" aria-live="polite"></div>
+
+        <div class="chips-colores">
+          <button type="button" class="chip-pastel" data-respuesta="Quiero colores pasteles: lila, rosa y azul cielo">🌸 Colores pasteles</button>
+          <button type="button" class="chip-pastel" data-respuesta="Es para un cumpleaños y quiero una experiencia súper romántica">🎁 Regalo / Experiencia</button>
+          <button type="button" class="chip-pastel" data-respuesta="Quiero un ramo mediano con cinta y dedicatoria">💌 Tamaño y detalles</button>
+        </div>
+
+        <div class="fila-chat">
+          <input type="text" id="entrada-ia" placeholder="Responde aquí: ¿de qué colores quieres tu ramo o cómo te gustaría tu experiencia?..." />
+          <button type="button" id="btn-enviar-ia" class="btn-principal">Responder</button>
+        </div>
+      </div>
+
+      <div class="tarjeta-contacto" id="contacto">
+        <h3>Contacto Directo — Amor en Detalle</h3>
+        <p>¿Quieres contratarme o pedir tu ramo personalizado directamente?</p>
+        <p><strong>Teléfono / WhatsApp:</strong> <a href="tel:3136777551">313 677 7551</a></p>
+        <a
+          id="enlace-whatsapp-ia"
+          class="enlace-ws"
+          href="https://wa.me/573136777551?text=%C2%A1Hola!%20%C2%BFC%C3%B3mo%20est%C3%A1s%3F%20Quiero%20pedir%20un%20ramo%20personalizado%20en%20Amor%20en%20Detalle."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Escribir al 313 677 7551 por WhatsApp
+        </a>
+      </div>
+    </section>
+
     <section class="carrito">
       <h2>Tu Pedido</h2>
       <ul id="lista-carrito"></ul>
@@ -48,6 +243,123 @@
     </section>
   </main>
 
+  <script>
+    // 1. Botón "Bienvenido" con sonido suave (Web Audio API)
+    const btnBienvenida = document.getElementById("btn-bienvenida");
+    const textoBienvenida = document.getElementById("texto-bienvenida");
+
+    function reproducirRuiditoBienvenida() {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) return;
+      const ctx = new AudioCtx();
+      const notas = [523.25, 659.25, 783.99]; // Do5, Mi5, Sol5
+      notas.forEach((frecuencia, i) => {
+        const osc = ctx.createOscillator();
+        const ganancia = ctx.createGain();
+        osc.type = "sine";
+        osc.frequency.value = frecuencia;
+        const inicio = ctx.currentTime + i * 0.11;
+        ganancia.gain.setValueAtTime(0.001, inicio);
+        ganancia.gain.exponentialRampToValueAtTime(0.12, inicio + 0.03);
+        ganancia.gain.exponentialRampToValueAtTime(0.0001, inicio + 0.22);
+        osc.connect(ganancia);
+        ganancia.connect(ctx.destination);
+        osc.start(inicio);
+        osc.stop(inicio + 0.24);
+      });
+    }
+
+    btnBienvenida.addEventListener("click", () => {
+      reproducirRuiditoBienvenida();
+      textoBienvenida.textContent = "¡Bienvenido a Amor en Detalle! Qué alegría tenerte aquí.";
+    });
+
+    // 2. Asistente conversacional interactivo para personalizar colores y experiencia
+    const historialChat = document.getElementById("historial-chat");
+    const entradaIa = document.getElementById("entrada-ia");
+    const btnEnviarIa = document.getElementById("btn-enviar-ia");
+    const enlaceWsIa = document.getElementById("enlace-whatsapp-ia");
+    const chipsPastel = document.querySelectorAll(".chip-pastel");
+
+    let pasoConversacion = 0;
+    const resumenCliente = {
+      deseo: "",
+      colores: "",
+      experiencia: ""
+    };
+
+    function agregarBurbuja(texto, esUsuario = false) {
+      const div = document.createElement("div");
+      div.className = esUsuario ? "burbuja-usuario" : "burbuja-ia";
+      div.textContent = texto;
+      historialChat.appendChild(div);
+      historialChat.scrollTop = historialChat.scrollHeight;
+    }
+
+    function actualizarWhatsAppConResumen() {
+      const partes = [];
+      if (resumenCliente.deseo) partes.push(`Deseo: ${resumenCliente.deseo}`);
+      if (resumenCliente.colores) partes.push(`Colores: ${resumenCliente.colores}`);
+      if (resumenCliente.experiencia) partes.push(`Experiencia: ${resumenCliente.experiencia}`);
+      const mensaje = partes.length
+        ? `¡Hola! ¿Cómo estás? Hablé con el asistente de Amor en Detalle. ${partes.join(" | ")}.`
+        : "¡Hola! ¿Cómo estás? Quiero pedir un ramo personalizado en Amor en Detalle.";
+      enlaceWsIa.href = `https://wa.me/573136777551?text=${encodeURIComponent(mensaje)}`;
+    }
+
+    function responderComoIa(textoUsuario) {
+      const limpio = textoUsuario.trim();
+      if (!limpio) return;
+
+      agregarBurbuja(limpio, true);
+
+      if (pasoConversacion === 0) {
+        resumenCliente.deseo = limpio;
+        pasoConversacion = 1;
+        agregarBurbuja(
+          "¡Qué emoción! Cuéntame: ¿de qué colores quieres tu ramo? ¿Te gustan los colores pasteles como lila pastel, azul pastel o rosa pastel, o prefieres combinar otros tonos?"
+        );
+      } else if (pasoConversacion === 1) {
+        resumenCliente.colores = limpio;
+        pasoConversacion = 2;
+        agregarBurbuja(
+          "¡Me encanta esa combinación! Ahora dime: ¿cómo quieres que sea la experiencia o el estilo del detalle? Por ejemplo: ¿es para un cumpleaños, aniversario, sorpresa, quieres mariposas, cinta satinada o una dedicatoria especial?"
+        );
+      } else {
+        resumenCliente.experiencia = limpio;
+        agregarBurbuja(
+          `¡Listo! Ya anoté tu idea (${resumenCliente.deseo || "ramo personalizado"}, colores: ${resumenCliente.colores || "a elegir"}, experiencia: ${resumenCliente.experiencia}). Si deseas, puedes escribirnos directamente al 313 677 7551 o tocar el botón de WhatsApp aquí abajo para coordinarlo.`
+        );
+      }
+
+      actualizarWhatsAppConResumen();
+    }
+
+    // Saludo inicial automático de la IA
+    agregarBurbuja("Bienvenido, hola, ¿qué deseas pedir hoy?");
+
+    btnEnviarIa.addEventListener("click", () => {
+      responderComoIa(entradaIa.value);
+      entradaIa.value = "";
+      entradaIa.focus();
+    });
+
+    entradaIa.addEventListener("keydown", (evento) => {
+      if (evento.key === "Enter") {
+        evento.preventDefault();
+        responderComoIa(entradaIa.value);
+        entradaIa.value = "";
+      }
+    });
+
+    chipsPastel.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        responderComoIa(chip.dataset.respuesta);
+      });
+    });
+  </script>
+
   <script src="script.js"></script>
 </body>
 </html>
+
