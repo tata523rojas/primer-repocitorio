@@ -1,13 +1,12 @@
 :root {
   --fondo-crema: #fff9fb;
-  --lila-fuerte: #9c6ade;
- --cielo-fuerte: #29b6f6;
+  --lila-fuerte: #7e57c2;
+ --cielo-fuerte: #0288d1;
   --lila-pastel: #efe8f8;
   --menta-pastel: #e6f4ee;
   --texto-oscuro: #4a3f45;
   --blanco: #ffffff;
-  
-
+ 
 }
 
 * {
@@ -18,8 +17,8 @@
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: linear-gradie
-  color: var(--blanco);
+  background: linear-gradient(135deg, var(--cielo-fuerte), var(lila-fuerte));
+  color: var(--texto oscuro);
   line-height: 1.6;
 }
 
