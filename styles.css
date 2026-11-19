@@ -1,0 +1,141 @@
+:root {
+  --fondo-crema: #fff9fb;
+  --rosa-pastel: #f8dce4;
+  --rosa-fuerte: #d47a96;
+  --lila-pastel: #efe8f8;
+  --menta-pastel: #e6f4ee;
+  --texto-oscuro: #4a3f45;
+  --blanco: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--fondo-crema);
+  color: var(--texto-oscuro);
+  line-height: 1.6;
+}
+
+.contenedor {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 18px;
+}
+
+.encabezado {
+  background: linear-gradient(135deg, var(--rosa-pastel), var(--lila-pastel));
+  padding: 40px 18px;
+  text-align: center;
+  border-bottom-left-radius: 28px;
+  border-bottom-right-radius: 28px;
+  margin-bottom: 24px;
+}
+
+.marca {
+  font-size: 2.2rem;
+  color: #8f4660;
+  margin-bottom: 6px;
+}
+
+.subtitulo {
+  font-size: 1.05rem;
+  color: var(--texto-oscuro);
+}
+
+section {
+  background-color: var(--blanco);
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 6px 18px rgba(212, 122, 150, 0.12);
+}
+
+h2 {
+  color: #8f4660;
+  margin-bottom: 16px;
+  font-size: 1.45rem;
+}
+
+.grid-ramos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 16px;
+}
+
+.tarjeta-ramo {
+  background-color: var(--menta-pastel);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.tarjeta-ramo h3 {
+  font-size: 1.1rem;
+  color: #3d5a4c;
+}
+
+.precio {
+  font-weight: bold;
+  color: #8f4660;
+}
+
+form {
+  display: grid;
+  gap: 12px;
+}
+
+label {
+  font-weight: 600;
+}
+
+input,
+select {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1.5px solid var(--rosa-pastel);
+  background-color: #fffdfd;
+  font-size: 1rem;
+}
+
+.btn-principal {
+  background-color: var(--rosa-fuerte);
+  color: var(--blanco);
+  border: none;
+  border-radius: 14px;
+  padding: 12px 18px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+.btn-principal:hover {
+  background-color: #bd6380;
+}
+
+#lista-carrito {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+#lista-carrito li {
+  background-color: var(--lila-pastel);
+  padding: 10px 14px;
+  border-radius: 12px;
+}
+
+#total-pedido {
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: #8f4660;
+}

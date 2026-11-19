@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amor en Detalle | Ramos de Rosas en Satín</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="encabezado">
+    <div class="contenedor">
+      <h1 class="marca">Amor en Detalle</h1>
+      <p class="subtitulo">Ramos de rosas eternas en satín hechos a mano y personalizados</p>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <section class="catalogo">
+      <h2>Nuestros Ramos</h2>
+      <div class="grid-ramos" id="lista-ramos"></div>
+    </section>
+
+    <section class="personalizar">
+      <h2>Personaliza tu Pedido</h2>
+      <form id="form-pedido">
+        <label for="color-rosa">Color de las rosas de satín:</label>
+        <select id="color-rosa" name="color-rosa">
+          <option value="Rojo pasión">Rojo pasión</option>
+          <option value="Rosa pastel">Rosa pastel</option>
+          <option value="Blanco perla">Blanco perla</option>
+          <option value="Vino tinto">Vino tinto</option>
+        </select>
+
+        <label for="cantidad-rosas">Cantidad de rosas:</label>
+        <input type="number" id="cantidad-rosas" name="cantidad-rosas" min="3" max="100" value="12" />
+
+        <label for="dedicatoria">Dedicatoria o detalle extra:</label>
+        <input type="text" id="dedicatoria" name="dedicatoria" placeholder="Ej. Mariposas doradas, cinta satinada..." />
+
+        <button type="submit" class="btn-principal">Agregar al carrito</button>
+      </form>
+    </section>
+
+    <section class="carrito">
+      <h2>Tu Pedido</h2>
+      <ul id="lista-carrito"></ul>
+      <p id="total-pedido">Total estimado: $0</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
