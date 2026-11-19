@@ -31,7 +31,7 @@ body {
 
 .encabezado {
   background: linear-gradient(135deg, var(--rosa-pastel), var(--lila-pastel));
-  padding: 40px 18px;
+  padding: 70px 25px;
   text-align: center;
   border-bottom-left-radius: 28px;
   border-bottom-right-radius: 28px;
@@ -39,13 +39,13 @@ body {
 }
 
 .marca {
-  font-size: 3.5rem;
+  font-size: 5rem;
   color: #8f4660;
   margin-bottom: 24px;
 }
 
 .subtitulo {
-  font-size: 1.05rem;
+  font-size: 2.2rem;
   color: var(--texto-oscuro);
 }
 
@@ -141,4 +141,4 @@ select {
   font-weight: bold;
   color: #8f4660;
 }
-.imagen-hero {max-height: 100px; object-fit:cover;}
+.imagen-hero {max-height: 100px; object-fit:cover;display:block;margin:0 auto;}
