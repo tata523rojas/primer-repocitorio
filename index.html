@@ -3,202 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Amor en Detalle | Ramos de Rosas Eternas en Satín</title>
+  <title>Amor en Detalle | Ramos de Rosas en Satín</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="encabezado">
-    <div class="contenedor encabezado-interno">
+    <div class="contenedor">
       <h1 class="marca">Amor en Detalle</h1>
       <p class="subtitulo">Ramos de rosas eternas en satín hechos a mano y personalizados</p>
-      <p class="eslogan">Un detalle único que tú nunca olvidarás</p>
-
-      <div class="barra-botones-centrada">
-        <button type="button" id="btn-bienvenida" class="btn-nav">
-          Bienvenido
-        </button>
-        <button type="button" id="btn-ir-catalogo" class="btn-nav activo">
-          Catálogo
-        </button>
-        <button type="button" id="btn-ir-personalizar" class="btn-nav">
-          Personalizar y cotizar
-        </button>
-      </div>
-
-      <p id="mensaje-bienvenida" class="mensaje-bienvenida" aria-live="polite"></p>
     </div>
   </header>
 
   <main class="contenedor">
-    <!-- SECCIÓN 1: CATÁLOGO EXHIBIDO EN CUADRITOS -->
-    <section id="seccion-catalogo" class="seccion-panel activa">
-      <div class="cabecera-seccion">
-        <h2>Catálogo de Ramos</h2>
-        <p class="texto-guia">
-          Elige el ramo que más te guste o pasa a personalizarlo y cotizarlo a tu medida.
-        </p>
-      </div>
-
-      <div class="grid-ramos" id="lista-ramos">
-        <article class="tarjeta-ramo seleccionada" data-nombre="Ramo de 3 Rosas" data-precio="25000">
-          <div class="espacio-imagen">
-            <img src="images/ramo-azul-hellokitty.jpg" alt="Ramo de 3 rosas en satín" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <span class="placeholder-foto">Foto Ramo de 3 Rosas</span>
-          </div>
-          <h3>Ramo de 3 Rosas</h3>
-          <p>Detalle delicado en satín, ideal para sorprender y personalizar.</p>
-          <p class="precio">$25.000</p>
-          <div class="acciones-tarjeta">
-            <button type="button" class="btn-elegir-ramo">Elegir y cotizar</button>
-          </div>
-        </article>
-
-        <article class="tarjeta-ramo" data-nombre="Ramo de 4 Rosas" data-precio="35000">
-          <div class="espacio-imagen">
-            <img src="images/ramo-rojo-mariposa.jpg" alt="Ramo de 4 rosas en satín" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <span class="placeholder-foto">Foto Ramo de 4 Rosas</span>
-          </div>
-          <h3>Ramo de 4 Rosas</h3>
-          <p>Equilibrio perfecto de rosas eternas en satín hechas a mano.</p>
-          <p class="precio">$35.000</p>
-          <div class="acciones-tarjeta">
-            <button type="button" class="btn-elegir-ramo">Elegir y cotizar</button>
-          </div>
-        </article>
-
-        <article class="tarjeta-ramo" data-nombre="Ramo de 5 Rosas" data-precio="45000">
-          <div class="espacio-imagen">
-            <img src="images/ramo-blanco-brillo.jpg" alt="Ramo de 5 rosas en satín" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <span class="placeholder-foto">Foto Ramo de 5 Rosas</span>
-          </div>
-          <h3>Ramo de 5 Rosas</h3>
-          <p>Mayor presencia y suavidad con acabado artesanal en satín.</p>
-          <p class="precio">$45.000</p>
-          <div class="acciones-tarjeta">
-            <button type="button" class="btn-elegir-ramo">Elegir y cotizar</button>
-          </div>
-        </article>
-
-        <article class="tarjeta-ramo" data-nombre="Ramo Pomposo con Luz Especial" data-precio="55000">
-          <div class="espacio-imagen">
-            <img src="images/ramo-corona-luz.jpg" alt="Ramo pomposo con luz especial" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <span class="placeholder-foto">Foto Ramo Pomposo con Luz</span>
-          </div>
-          <h3>Ramo Pomposo con Luz Especial</h3>
-          <p>Diseño abundante con luz especial para una ocasión inolvidable.</p>
-          <p class="precio">$55.000</p>
-          <div class="acciones-tarjeta">
-            <button type="button" class="btn-elegir-ramo">Elegir y cotizar</button>
-          </div>
-        </article>
-      </div>
-
-      <div class="botonera-centro">
-        <button type="button" id="btn-ir-personalizar-abajo" class="btn-destacado">
-          Ir a Personalizar y Cotizar mi Ramo
-        </button>
-      </div>
-
-      <div class="caja-contacto">
-        <p class="titulo-contacto">Contacto directo y cotizaciones</p>
-        <p class="numero-contacto"><a href="tel:3136777551">313 677 7551</a></p>
-        <a
-          id="enlace-whatsapp-catalogo"
-          class="btn-ws"
-          href="https://wa.me/573136777551?text=%C2%A1Hola!%20%C2%BFC%C3%B3mo%20est%C3%A1s%3F%20Quiero%20cotizar%20un%20ramo%20en%20Amor%20en%20Detalle."
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Cotizar por WhatsApp (313 677 7551)
-        </a>
-      </div>
+    <section class="catalogo">
+      <h2>Nuestros Ramos</h2>
+      <div class="grid-ramos" id="lista-ramos"></div>
     </section>
 
-    <!-- SECCIÓN 2: PERSONALIZAR Y COTIZAR -->
-    <section id="seccion-personalizar" class="seccion-panel">
-      <div class="cabecera-seccion">
-        <h2>Personaliza y Cotiza tu Pedido</h2>
-        <p id="ramo-actual-info" class="banner-seleccion">
-          Ramo base seleccionado: Ramo de 3 Rosas ($25.000)
-        </p>
-      </div>
-
-      <form id="form-pedido" class="formulario-centrado">
+    <section class="personalizar">
+      <h2>Personaliza tu Pedido</h2>
+      <form id="form-pedido">
         <label for="color-rosa">Color de las rosas de satín:</label>
         <select id="color-rosa" name="color-rosa">
-          <option value="Palo de rosa oscuro">Palo de rosa oscuro</option>
-          <option value="Color ciruela">Color ciruela</option>
-          <option value="Rosadito">Rosadito</option>
-          <option value="Blanco">Blanco</option>
-          <option value="Color crema">Color crema</option>
+          <option value="Rojo pasión">Rojo pasión</option>
+          <option value="Rosa pastel">Rosa pastel</option>
+          <option value="Blanco perla">Blanco perla</option>
+          <option value="Vino tinto">Vino tinto</option>
         </select>
 
         <label for="cantidad-rosas">Cantidad de rosas:</label>
-        <input type="number" id="cantidad-rosas" name="cantidad-rosas" min="3" max="50" value="3" />
+        <input type="number" id="cantidad-rosas" name="cantidad-rosas" min="3" max="100" value="12" />
 
-        <label for="color-papel">Color de papel:</label>
-        <select id="color-papel" name="color-papel">
-          <option value="Color crema">Color crema</option>
-          <option value="Blanco">Blanco</option>
-          <option value="Rosadito">Rosadito</option>
-          <option value="Palo de rosa oscuro">Palo de rosa oscuro</option>
-          <option value="Color ciruela">Color ciruela</option>
-        </select>
+        <label for="dedicatoria">Dedicatoria o detalle extra:</label>
+        <input type="text" id="dedicatoria" name="dedicatoria" placeholder="Ej. Mariposas doradas, cinta satinada..." />
 
-        <fieldset class="grupo-extras">
-          <legend>Detalles extra para tu cotización:</legend>
-          <label class="opcion-extra">
-            <input type="checkbox" id="extra-corona" value="Corona" data-costo="8000" />
-            Corona (+$8.000)
-          </label>
-          <label class="opcion-extra">
-            <input type="checkbox" id="extra-mariposas" value="Mariposas" data-costo="5000" />
-            Mariposas (+$5.000)
-          </label>
-          <label class="opcion-extra">
-            <input type="checkbox" id="extra-cinta" value="Cinta satinada y luz" data-costo="6000" />
-            Cinta satinada / detalle extra (+$6.000)
-          </label>
-        </fieldset>
-
-        <label for="dedicatoria">Dedicatoria o cómo quieres que lo acomodemos:</label>
-        <input
-          type="text"
-          id="dedicatoria"
-          name="dedicatoria"
-          placeholder="Ej. Dedicatoria especial, acomodo en abanico..."
-        />
-
-        <div class="resumen-estimado">
-          <p id="total-pedido">Valor estimado de tu ramo: $25.000</p>
-          <p id="detalle-calculo" class="detalle-calculo"></p>
-        </div>
-
-        <div class="botones-form">
-          <button type="submit" id="btn-realizar-compra" class="btn-destacado">
-            Confirmar pedido
-          </button>
-          <button type="button" id="btn-volver-catalogo" class="btn-secundario">
-            Volver al catálogo
-          </button>
-        </div>
+        <button type="submit" class="btn-principal">Agregar al carrito</button>
       </form>
+    </section>
 
-      <div id="mensaje-confirmacion" class="mensaje-confirmacion" aria-live="polite"></div>
-
-      <div class="caja-contacto">
-        <p class="titulo-contacto">¿Cotización por fuera o ajuste especial?</p>
-        <p class="numero-contacto"><a href="tel:3136777551">313 677 7551</a></p>
-        <a
-          id="enlace-whatsapp"
-          class="btn-ws"
-          href="https://wa.me/573136777551?text=%C2%A1Hola!%20%C2%BFC%C3%B3mo%20est%C3%A1s%3F%20Quiero%20cotizar%20un%20ramo%20en%20Amor%20en%20Detalle."
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Enviar cotización al 313 677 7551 por WhatsApp
-        </a>
-      </div>
+    <section class="carrito">
+      <h2>Tu Pedido</h2>
+      <ul id="lista-carrito"></ul>
+      <p id="total-pedido">Total estimado: $0</p>
     </section>
   </main>
 
