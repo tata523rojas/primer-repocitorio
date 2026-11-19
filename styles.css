@@ -1,12 +1,14 @@
+
 :root {
-  --lila-pastel: #e6dcf7;
-  --rosa-pastel: #ffd9e6;
-  --fucsia-pastel: #ffc2dc;
-  --azul-pastel: #d4efff;
-  --aguamarina-pastel: #d2f5ec;
-  --morado-oscuro: #3b1c6e;
-  --azul-rey: #163a8a;
+  --rosa-pastel: #fce4ec;
   --blanco: #ffffff;
+  --color-crema: #fff8f2;
+  --palo-de-rosa: #c98a9b;
+  --palo-de-rosa-oscuro: #9e6273;
+  --azul-pastel: #cfe8ff;
+  --azul-pastel-activo: #b3d9ff;
+  --texto-principal: #5c3d46;
+  --texto-suave: #7a5661;
 }
 
 * {
@@ -17,14 +19,8 @@
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(
-    135deg,
-    var(--lila-pastel) 0%,
-    var(--azul-pastel) 38%,
-    var(--rosa-pastel) 70%,
-    var(--aguamarina-pastel) 100%
-  );
-  color: var(--azul-rey);
+  background-color: var(--color-crema);
+  color: var(--texto-principal);
   line-height: 1.6;
   min-height: 100vh;
 }
@@ -36,28 +32,28 @@ body {
 }
 
 .encabezado {
-  background: linear-gradient(135deg, var(--lila-pastel), var(--rosa-pastel));
-  border-bottom: 3px solid var(--azul-pastel);
-  border-bottom-left-radius: 28px;
-  border-bottom-right-radius: 28px;
+  background-color: var(--rosa-pastel);
+  border-bottom: 2px solid var(--palo-de-rosa);
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
   padding-bottom: 28px;
   margin-bottom: 20px;
-  box-shadow: 0 6px 18px rgba(59, 28, 110, 0.1);
 }
 
 .numero-arriba {
   text-align: center;
   font-weight: 700;
-  color: var(--morado-oscuro);
-  background-color: var(--aguamarina-pastel);
+  color: var(--texto-principal);
+  background-color: var(--blanco);
   display: inline-block;
   padding: 6px 14px;
   border-radius: 999px;
   margin: 0 auto 12px;
+  border: 1px solid var(--palo-de-rosa);
 }
 
 .numero-arriba a {
-  color: var(--azul-rey);
+  color: var(--palo-de-rosa-oscuro);
   text-decoration: none;
   font-weight: 800;
 }
@@ -70,23 +66,23 @@ body {
 }
 
 .marca {
-  font-size: 2.35rem;
-  color: var(--morado-oscuro);
+  font-size: 2.3rem;
+  color: var(--palo-de-rosa-oscuro);
   margin-bottom: 6px;
 }
 
 .subtitulo {
-  font-size: 1.08rem;
-  color: var(--azul-rey);
+  font-size: 1.06rem;
+  color: var(--texto-principal);
   font-weight: 600;
   margin-bottom: 6px;
 }
 
 .eslogan {
-  font-size: 1.05rem;
+  font-size: 1.02rem;
   font-style: italic;
-  color: var(--morado-oscuro);
-  font-weight: 700;
+  color: var(--texto-suave);
+  font-weight: 600;
   margin-bottom: 18px;
 }
 
@@ -100,53 +96,44 @@ body {
 button {
   font-family: inherit;
   cursor: pointer;
-  transition: transform 0.14s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.14s ease, background-color 0.2s ease;
 }
 
 button:hover {
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
-.btn-accion {
-  background-color: var(--aguamarina-pastel);
-  color: var(--morado-oscuro);
-  border: 2px solid var(--morado-oscuro);
-  border-radius: 999px;
-  padding: 10px 18px;
-  font-weight: 700;
-  font-size: 0.98rem;
-}
-
+/* Los tres botones superiores en azul pastel */
+.btn-accion,
 .btn-seccion {
-  background-color: var(--blanco);
-  color: var(--azul-rey);
-  border: 2px solid var(--azul-rey);
+  background-color: var(--azul-pastel);
+  color: var(--texto-principal);
+  border: 1.5px solid var(--palo-de-rosa);
   border-radius: 999px;
   padding: 10px 18px;
   font-weight: 700;
   font-size: 0.98rem;
 }
 
-.btn-seccion.activo {
-  background-color: var(--morado-oscuro);
-  color: var(--blanco);
-  border-color: var(--morado-oscuro);
+.btn-seccion.activo,
+.btn-accion:hover,
+.btn-seccion:hover {
+  background-color: var(--azul-pastel-activo);
 }
 
 .mensaje-bienvenida {
   margin-top: 12px;
   font-weight: 700;
-  color: var(--morado-oscuro);
+  color: var(--palo-de-rosa-oscuro);
   min-height: 24px;
 }
 
 .seccion-panel {
   display: none;
-  background-color: rgba(255, 255, 255, 0.92);
-  border-radius: 22px;
+  background-color: var(--blanco);
+  border-radius: 20px;
   padding: 24px;
-  box-shadow: 0 8px 22px rgba(22, 58, 138, 0.12);
-  border: 2px solid var(--lila-pastel);
+  border: 1.5px solid var(--rosa-pastel);
 }
 
 .seccion-panel.activa {
@@ -154,15 +141,14 @@ button:hover {
 }
 
 h2 {
-  color: var(--morado-oscuro);
+  color: var(--palo-de-rosa-oscuro);
   margin-bottom: 10px;
   font-size: 1.5rem;
 }
 
 .texto-guia {
-  color: var(--azul-rey);
+  color: var(--texto-suave);
   margin-bottom: 18px;
-  font-weight: 500;
 }
 
 .grid-ramos {
@@ -172,64 +158,56 @@ h2 {
 }
 
 .tarjeta-ramo {
-  background-color: var(--rosa-pastel);
-  color: var(--morado-oscuro);
-  border-radius: 18px;
+  background-color: var(--color-crema);
+  color: var(--texto-principal);
+  border-radius: 16px;
   padding: 18px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 10px;
-  border: 2px solid transparent;
+  border: 1.5px solid var(--rosa-pastel);
 }
 
-.tarjeta-ramo:nth-child(2) {
-  background-color: var(--azul-pastel);
-  color: var(--azul-rey);
-}
-
-.tarjeta-ramo:nth-child(3) {
-  background-color: var(--fucsia-pastel);
-  color: var(--morado-oscuro);
-}
-
-.tarjeta-ramo:nth-child(4) {
-  background-color: var(--aguamarina-pastel);
-  color: var(--azul-rey);
+.tarjeta-ramo:nth-child(even) {
+  background-color: var(--blanco);
+  border-color: var(--palo-de-rosa);
 }
 
 .tarjeta-ramo.seleccionada {
-  border-color: var(--morado-oscuro);
-  box-shadow: 0 6px 16px rgba(59, 28, 110, 0.18);
+  border-color: var(--palo-de-rosa-oscuro);
+  background-color: var(--rosa-pastel);
 }
 
 .tarjeta-ramo h3 {
   font-size: 1.15rem;
-  color: var(--morado-oscuro);
+  color: var(--palo-de-rosa-oscuro);
 }
 
 .precio {
   font-size: 1.2rem;
   font-weight: 800;
-  color: var(--azul-rey);
+  color: var(--texto-principal);
 }
 
+/* Botones de elegir ramo en rosado pastel */
 .btn-elegir-ramo {
-  background-color: var(--azul-rey);
-  color: var(--blanco);
-  border: none;
+  background-color: var(--rosa-pastel);
+  color: var(--texto-principal);
+  border: 1.5px solid var(--palo-de-rosa);
   border-radius: 12px;
   padding: 10px 14px;
   font-weight: 700;
 }
 
 .btn-elegir-ramo:hover {
-  background-color: var(--morado-oscuro);
+  background-color: var(--palo-de-rosa);
+  color: var(--blanco);
 }
 
 .banner-seleccion {
-  background-color: var(--lila-pastel);
-  color: var(--morado-oscuro);
+  background-color: var(--rosa-pastel);
+  color: var(--texto-principal);
   padding: 12px 16px;
   border-radius: 14px;
   font-weight: 700;
@@ -243,7 +221,7 @@ form {
 
 label {
   font-weight: 700;
-  color: var(--morado-oscuro);
+  color: var(--texto-principal);
 }
 
 input[type="number"],
@@ -252,15 +230,15 @@ select {
   width: 100%;
   padding: 10px 12px;
   border-radius: 12px;
-  border: 2px solid var(--lila-pastel);
-  background-color: var(--blanco);
-  color: var(--azul-rey);
+  border: 1.5px solid var(--palo-de-rosa);
+  background-color: var(--color-crema);
+  color: var(--texto-principal);
   font-size: 1rem;
 }
 
 .grupo-extras {
-  border: 2px solid var(--azul-pastel);
-  background-color: var(--aguamarina-pastel);
+  border: 1.5px solid var(--rosa-pastel);
+  background-color: var(--color-crema);
   border-radius: 14px;
   padding: 12px 14px;
   display: grid;
@@ -269,7 +247,7 @@ select {
 
 .grupo-extras legend {
   font-weight: 700;
-  color: var(--morado-oscuro);
+  color: var(--palo-de-rosa-oscuro);
   padding: 0 6px;
 }
 
@@ -277,7 +255,7 @@ select {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: var(--azul-rey);
+  color: var(--texto-principal);
   font-weight: 600;
 }
 
@@ -286,7 +264,8 @@ select {
 }
 
 .resumen-estimado {
-  background-color: var(--rosa-pastel);
+  background-color: var(--color-crema);
+  border: 1.5px solid var(--rosa-pastel);
   border-radius: 14px;
   padding: 14px;
   margin-top: 6px;
@@ -295,12 +274,12 @@ select {
 #total-pedido {
   font-size: 1.2rem;
   font-weight: 800;
-  color: var(--morado-oscuro);
+  color: var(--palo-de-rosa-oscuro);
 }
 
 .detalle-calculo {
   font-size: 0.92rem;
-  color: var(--azul-rey);
+  color: var(--texto-suave);
   margin-top: 4px;
 }
 
@@ -312,7 +291,7 @@ select {
 }
 
 .btn-principal {
-  background-color: var(--morado-oscuro);
+  background-color: var(--palo-de-rosa);
   color: var(--blanco);
   border: none;
   border-radius: 14px;
@@ -321,10 +300,14 @@ select {
   font-size: 1rem;
 }
 
+.btn-principal:hover {
+  background-color: var(--palo-de-rosa-oscuro);
+}
+
 .btn-secundario {
-  background-color: var(--azul-pastel);
-  color: var(--azul-rey);
-  border: 2px solid var(--azul-rey);
+  background-color: var(--blanco);
+  color: var(--texto-principal);
+  border: 1.5px solid var(--palo-de-rosa);
   border-radius: 14px;
   padding: 12px 18px;
   font-weight: 700;
@@ -334,21 +317,22 @@ select {
 .mensaje-confirmacion {
   margin-top: 14px;
   font-weight: 800;
-  color: var(--morado-oscuro);
-  background-color: var(--aguamarina-pastel);
+  color: var(--texto-principal);
+  background-color: var(--rosa-pastel);
   border-radius: 14px;
   padding: 0;
 }
 
 .mensaje-confirmacion.visible {
   padding: 14px 16px;
-  border: 2px solid var(--morado-oscuro);
+  border: 1.5px solid var(--palo-de-rosa);
 }
 
 .caja-cotizacion {
   margin-top: 18px;
-  background-color: var(--fucsia-pastel);
-  color: var(--morado-oscuro);
+  background-color: var(--color-crema);
+  color: var(--texto-principal);
+  border: 1.5px solid var(--rosa-pastel);
   border-radius: 16px;
   padding: 16px;
   display: grid;
@@ -358,7 +342,7 @@ select {
 .btn-ws {
   display: inline-block;
   width: fit-content;
-  background-color: var(--azul-rey);
+  background-color: var(--palo-de-rosa);
   color: var(--blanco);
   text-decoration: none;
   padding: 10px 16px;
@@ -367,5 +351,5 @@ select {
 }
 
 .btn-ws:hover {
-  background-color: var(--morado-oscuro);
+  background-color: var(--palo-de-rosa-oscuro);
 }

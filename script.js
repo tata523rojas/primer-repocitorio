@@ -1,4 +1,3 @@
-// Sonidos suaves con Web Audio API (sin archivos externos)
 function reproducirSonido(notas = [523.25, 659.25, 783.99]) {
   const AudioCtx = window.AudioContext || window.webkitAudioContext;
   if (!AudioCtx) return;
@@ -26,7 +25,6 @@ function formatoPesos(valor) {
   return "$" + Number(valor).toLocaleString("es-CO");
 }
 
-// Navegación por secciones (Catálogo vs Personalizar tu pedido)
 const btnIrCatalogo = document.getElementById("btn-ir-catalogo");
 const btnIrPersonalizar = document.getElementById("btn-ir-personalizar");
 const btnVolverCatalogo = document.getElementById("btn-volver-catalogo");
@@ -50,7 +48,6 @@ btnIrCatalogo.addEventListener("click", () => mostrarSeccion("catalogo"));
 btnIrPersonalizar.addEventListener("click", () => mostrarSeccion("personalizar"));
 btnVolverCatalogo.addEventListener("click", () => mostrarSeccion("catalogo"));
 
-// Botón Bienvenido con sonido
 const btnBienvenida = document.getElementById("btn-bienvenida");
 const mensajeBienvenida = document.getElementById("mensaje-bienvenida");
 
@@ -60,7 +57,6 @@ btnBienvenida.addEventListener("click", () => {
     "¡Bienvenido a Amor en Detalle! Un amor inolvidable que perdura. Elige tu ramo o personaliza tu pedido.";
 });
 
-// Selección de ramos del catálogo
 const tarjetasRamo = document.querySelectorAll(".tarjeta-ramo");
 const ramoActualInfo = document.getElementById("ramo-actual-info");
 const inputCantidad = document.getElementById("cantidad-rosas");
@@ -97,7 +93,6 @@ tarjetasRamo.forEach((tarjeta) => {
   });
 });
 
-// Cálculo dinámico del pedido estimado
 const selectColorRosa = document.getElementById("color-rosa");
 const selectColorPapel = document.getElementById("color-papel");
 const extraCorona = document.getElementById("extra-corona");
@@ -155,7 +150,6 @@ function calcularPedido() {
   elemento.addEventListener("change", calcularPedido);
 });
 
-// Confirmación de compra
 const formPedido = document.getElementById("form-pedido");
 const mensajeConfirmacion = document.getElementById("mensaje-confirmacion");
 
