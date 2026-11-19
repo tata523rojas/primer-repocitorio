@@ -1,3 +1,4 @@
+// Sonidos suaves con Web Audio API (sin archivos externos)
 function reproducirSonido(notas = [523.25, 659.25, 783.99]) {
   const AudioCtx = window.AudioContext || window.webkitAudioContext;
   if (!AudioCtx) return;
@@ -25,6 +26,7 @@ function formatoPesos(valor) {
   return "$" + Number(valor).toLocaleString("es-CO");
 }
 
+// Navegación por secciones (Catálogo vs Personalizar tu pedido)
 const btnIrCatalogo = document.getElementById("btn-ir-catalogo");
 const btnIrPersonalizar = document.getElementById("btn-ir-personalizar");
 const btnVolverCatalogo = document.getElementById("btn-volver-catalogo");
@@ -48,23 +50,27 @@ btnIrCatalogo.addEventListener("click", () => mostrarSeccion("catalogo"));
 btnIrPersonalizar.addEventListener("click", () => mostrarSeccion("personalizar"));
 btnVolverCatalogo.addEventListener("click", () => mostrarSeccion("catalogo"));
 
+// Botón Bienvenido con sonido y mensaje
 const btnBienvenida = document.getElementById("btn-bienvenida");
 const mensajeBienvenida = document.getElementById("mensaje-bienvenida");
 
 btnBienvenida.addEventListener("click", () => {
   reproducirSonido([523.25, 659.25, 783.99, 1046.5]);
   mensajeBienvenida.textContent =
-    "¡Bienvenido a Amor en Detalle! Un amor inolvidable que perdura. Elige tu ramo o personaliza tu pedido.";
+    "Bienvenido a Amor en Detalle. Un detalle único e inolvidable como tú — personaliza tu ramo y tu pedido.";
 });
 
+// Selección real de ramos del catálogo + actualización de foto previa
 const tarjetasRamo = document.querySelectorAll(".tarjeta-ramo");
 const ramoActualInfo = document.getElementById("ramo-actual-info");
 const inputCantidad = document.getElementById("cantidad-rosas");
+const fotoPersonalizacion = document.getElementById("foto-personalizacion");
 
 let ramoSeleccionado = {
   nombre: "Ramo de 3 Rosas",
   precioBase: 25000,
-  rosasBase: 3
+  rosasBase: 3,
+  imagen: "images/ramo-azul-hellokitty.jpg"
 };
 
 function obtenerRosasBaseDeNombre(nombre) {
@@ -73,8 +79,20 @@ function obtenerRosasBaseDeNombre(nombre) {
   return 3;
 }
 
+function mostrarFotoPrevia(rutaImagen) {
+  if (!fotoPersonalizacion) return;
+  const placeholder = fotoPersonalizacion.nextElementSibling;
+  fotoPersonalizacion.style.display = "block";
+  if (placeholder) {
+    placeholder.style.display = "none";
+  }
+  fotoPersonalizacion.src = rutaImagen;
+}
+
 tarjetasRamo.forEach((tarjeta) => {
   const boton = tarjeta.querySelector(".btn-elegir-ramo");
+  const imgRamo = tarjeta.querySelector("img");
+
   boton.addEventListener("click", () => {
     tarjetasRamo.forEach((t) => t.classList.remove("seleccionada"));
     tarjeta.classList.add("seleccionada");
@@ -82,17 +100,20 @@ tarjetasRamo.forEach((tarjeta) => {
     const nombre = tarjeta.dataset.nombre;
     const precioBase = Number(tarjeta.dataset.precio);
     const rosasBase = obtenerRosasBaseDeNombre(nombre);
+    const rutaImagen = imgRamo ? imgRamo.getAttribute("src") : "images/ramo-azul-hellokitty.jpg";
 
-    ramoSeleccionado = { nombre, precioBase, rosasBase };
+    ramoSeleccionado = { nombre, precioBase, rosasBase, imagen: rutaImagen };
     inputCantidad.value = rosasBase;
     ramoActualInfo.textContent = `Ramo base seleccionado: ${nombre} (${formatoPesos(precioBase)})`;
 
+    mostrarFotoPrevia(rutaImagen);
     reproducirSonido([523.25, 783.99]);
     mostrarSeccion("personalizar", false);
     calcularPedido();
   });
 });
 
+// Cálculo dinámico del pedido estimado y enlace a WhatsApp (313 677 7551)
 const selectColorRosa = document.getElementById("color-rosa");
 const selectColorPapel = document.getElementById("color-papel");
 const extraCorona = document.getElementById("extra-corona");
@@ -102,6 +123,7 @@ const inputDedicatoria = document.getElementById("dedicatoria");
 const totalPedidoEl = document.getElementById("total-pedido");
 const detalleCalculoEl = document.getElementById("detalle-calculo");
 const enlaceWhatsapp = document.getElementById("enlace-whatsapp");
+const enlaceWhatsappCatalogo = document.getElementById("enlace-whatsapp-catalogo");
 
 function calcularPedido() {
   const cantidad = Math.max(1, Number(inputCantidad.value) || ramoSeleccionado.rosasBase);
@@ -112,7 +134,7 @@ function calcularPedido() {
   const extrasElegidos = [];
 
   [extraCorona, extraMariposas, extraCinta].forEach((chk) => {
-    if (chk.checked) {
+    if (chk && chk.checked) {
       costoExtras += Number(chk.dataset.costo);
       extrasElegidos.push(chk.value);
     }
@@ -134,7 +156,13 @@ function calcularPedido() {
     `dedicatoria: "${inputDedicatoria.value.trim() || "sin dedicatoria"}". ` +
     `Total estimado: ${formatoPesos(total)}.`;
 
-  enlaceWhatsapp.href = `https://wa.me/573136777551?text=${encodeURIComponent(resumenTexto)}`;
+  const urlWs = `https://wa.me/573136777551?text=${encodeURIComponent(resumenTexto)}`;
+  if (enlaceWhatsapp) {
+    enlaceWhatsapp.href = urlWs;
+  }
+  if (enlaceWhatsappCatalogo) {
+    enlaceWhatsappCatalogo.href = urlWs;
+  }
 }
 
 [
@@ -146,10 +174,12 @@ function calcularPedido() {
   extraCinta,
   inputDedicatoria
 ].forEach((elemento) => {
+  if (!elemento) return;
   elemento.addEventListener("input", calcularPedido);
   elemento.addEventListener("change", calcularPedido);
 });
 
+// Confirmación de compra con sonido y mensaje de agradecimiento
 const formPedido = document.getElementById("form-pedido");
 const mensajeConfirmacion = document.getElementById("mensaje-confirmacion");
 
@@ -158,8 +188,11 @@ formPedido.addEventListener("submit", (evento) => {
   calcularPedido();
   reproducirSonido([523.25, 659.25, 783.99, 1046.5]);
   mensajeConfirmacion.textContent =
-    "¡Muchas gracias por tu pedido, me encantó! Si deseas coordinar o cotizar por fuera, escríbenos al 313 677 7551.";
+    "¡Muchas gracias por tu pedido, me encantó! Si deseas coordinar o cotizar por fuera, comunícate al 313 677 7551.";
   mensajeConfirmacion.classList.add("visible");
 });
 
 calcularPedido();
+
+  
+  

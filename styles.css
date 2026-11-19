@@ -1,355 +1,46 @@
-
-:root {
-  --rosa-pastel: #fce4ec;
-  --blanco: #ffffff;
-  --color-crema: #fff8f2;
-  --palo-de-rosa: #c98a9b;
-  --palo-de-rosa-oscuro: #9e6273;
-  --azul-pastel: #cfe8ff;
-  --azul-pastel-activo: #b3d9ff;
-  --texto-principal: #5c3d46;
-  --texto-suave: #7a5661;
+.bloque-galeria-videos {
+  margin-top: 26px;
+  padding-top: 20px;
+  border-top: 2px solid var(--rosa-crema);
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: var(--color-crema);
-  color: var(--texto-principal);
-  line-height: 1.6;
-  min-height: 100vh;
-}
-
-.contenedor {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 24px 18px;
-}
-
-.encabezado {
-  background-color: var(--rosa-pastel);
-  border-bottom: 2px solid var(--palo-de-rosa);
-  border-bottom-left-radius: 24px;
-  border-bottom-right-radius: 24px;
-  padding-bottom: 28px;
-  margin-bottom: 20px;
-}
-
-.numero-arriba {
-  text-align: center;
-  font-weight: 700;
-  color: var(--texto-principal);
-  background-color: var(--blanco);
-  display: inline-block;
-  padding: 6px 14px;
-  border-radius: 999px;
-  margin: 0 auto 12px;
-  border: 1px solid var(--palo-de-rosa);
-}
-
-.numero-arriba a {
-  color: var(--palo-de-rosa-oscuro);
-  text-decoration: none;
-  font-weight: 800;
-}
-
-.encabezado .contenedor {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.marca {
-  font-size: 2.3rem;
-  color: var(--palo-de-rosa-oscuro);
+.bloque-galeria-videos h3 {
+  color: var(--texto-oscuro);
+  font-size: 1.25rem;
   margin-bottom: 6px;
 }
 
-.subtitulo {
-  font-size: 1.06rem;
-  color: var(--texto-principal);
-  font-weight: 600;
-  margin-bottom: 6px;
-}
-
-.eslogan {
-  font-size: 1.02rem;
-  font-style: italic;
-  color: var(--texto-suave);
-  font-weight: 600;
-  margin-bottom: 18px;
-}
-
-.barra-acciones-inicio {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-}
-
-button {
-  font-family: inherit;
-  cursor: pointer;
-  transition: transform 0.14s ease, background-color 0.2s ease;
-}
-
-button:hover {
-  transform: translateY(-1px);
-}
-
-/* Los tres botones superiores en azul pastel */
-.btn-accion,
-.btn-seccion {
-  background-color: var(--azul-pastel);
-  color: var(--texto-principal);
-  border: 1.5px solid var(--palo-de-rosa);
-  border-radius: 999px;
-  padding: 10px 18px;
-  font-weight: 700;
-  font-size: 0.98rem;
-}
-
-.btn-seccion.activo,
-.btn-accion:hover,
-.btn-seccion:hover {
-  background-color: var(--azul-pastel-activo);
-}
-
-.mensaje-bienvenida {
-  margin-top: 12px;
-  font-weight: 700;
-  color: var(--palo-de-rosa-oscuro);
-  min-height: 24px;
-}
-
-.seccion-panel {
-  display: none;
-  background-color: var(--blanco);
-  border-radius: 20px;
-  padding: 24px;
-  border: 1.5px solid var(--rosa-pastel);
-}
-
-.seccion-panel.activa {
-  display: block;
-}
-
-h2 {
-  color: var(--palo-de-rosa-oscuro);
-  margin-bottom: 10px;
-  font-size: 1.5rem;
-}
-
-.texto-guia {
-  color: var(--texto-suave);
-  margin-bottom: 18px;
-}
-
-.grid-ramos {
+.grid-videos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
   gap: 16px;
+  margin-top: 12px;
 }
 
-.tarjeta-ramo {
-  background-color: var(--color-crema);
-  color: var(--texto-principal);
+.tarjeta-video {
+  background-color: var(--rosa-crema);
+  border: 1.5px solid var(--palo-de-rosa);
   border-radius: 16px;
-  padding: 18px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 10px;
-  border: 1.5px solid var(--rosa-pastel);
+  gap: 8px;
 }
 
-.tarjeta-ramo:nth-child(even) {
-  background-color: var(--blanco);
-  border-color: var(--palo-de-rosa);
-}
-
-.tarjeta-ramo.seleccionada {
-  border-color: var(--palo-de-rosa-oscuro);
-  background-color: var(--rosa-pastel);
-}
-
-.tarjeta-ramo h3 {
-  font-size: 1.15rem;
-  color: var(--palo-de-rosa-oscuro);
-}
-
-.precio {
-  font-size: 1.2rem;
-  font-weight: 800;
-  color: var(--texto-principal);
-}
-
-/* Botones de elegir ramo en rosado pastel */
-.btn-elegir-ramo {
-  background-color: var(--rosa-pastel);
-  color: var(--texto-principal);
-  border: 1.5px solid var(--palo-de-rosa);
-  border-radius: 12px;
-  padding: 10px 14px;
-  font-weight: 700;
-}
-
-.btn-elegir-ramo:hover {
-  background-color: var(--palo-de-rosa);
-  color: var(--blanco);
-}
-
-.banner-seleccion {
-  background-color: var(--rosa-pastel);
-  color: var(--texto-principal);
-  padding: 12px 16px;
-  border-radius: 14px;
-  font-weight: 700;
-  margin-bottom: 16px;
-}
-
-form {
-  display: grid;
-  gap: 12px;
-}
-
-label {
-  font-weight: 700;
-  color: var(--texto-principal);
-}
-
-input[type="number"],
-input[type="text"],
-select {
+.tarjeta-video video {
   width: 100%;
-  padding: 10px 12px;
+  height: 220px;
+  object-fit: cover;
   border-radius: 12px;
-  border: 1.5px solid var(--palo-de-rosa);
-  background-color: var(--color-crema);
-  color: var(--texto-principal);
-  font-size: 1rem;
+  background-color: var(--ciruela-oscuro);
 }
 
-.grupo-extras {
-  border: 1.5px solid var(--rosa-pastel);
-  background-color: var(--color-crema);
-  border-radius: 14px;
-  padding: 12px 14px;
-  display: grid;
-  gap: 8px;
-}
-
-.grupo-extras legend {
-  font-weight: 700;
-  color: var(--palo-de-rosa-oscuro);
-  padding: 0 6px;
-}
-
-.opcion-extra {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--texto-principal);
-  font-weight: 600;
-}
-
-.opcion-extra input {
-  width: auto;
-}
-
-.resumen-estimado {
-  background-color: var(--color-crema);
-  border: 1.5px solid var(--rosa-pastel);
-  border-radius: 14px;
-  padding: 14px;
-  margin-top: 6px;
-}
-
-#total-pedido {
-  font-size: 1.2rem;
-  font-weight: 800;
-  color: var(--palo-de-rosa-oscuro);
-}
-
-.detalle-calculo {
+.titulo-video {
   font-size: 0.92rem;
-  color: var(--texto-suave);
-  margin-top: 4px;
-}
-
-.botones-form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 6px;
-}
-
-.btn-principal {
-  background-color: var(--palo-de-rosa);
-  color: var(--blanco);
-  border: none;
-  border-radius: 14px;
-  padding: 12px 20px;
   font-weight: 700;
-  font-size: 1rem;
+  color: var(--texto-oscuro);
+  text-align: center;
 }
 
-.btn-principal:hover {
-  background-color: var(--palo-de-rosa-oscuro);
-}
+  
 
-.btn-secundario {
-  background-color: var(--blanco);
-  color: var(--texto-principal);
-  border: 1.5px solid var(--palo-de-rosa);
-  border-radius: 14px;
-  padding: 12px 18px;
-  font-weight: 700;
-  font-size: 1rem;
-}
-
-.mensaje-confirmacion {
-  margin-top: 14px;
-  font-weight: 800;
-  color: var(--texto-principal);
-  background-color: var(--rosa-pastel);
-  border-radius: 14px;
-  padding: 0;
-}
-
-.mensaje-confirmacion.visible {
-  padding: 14px 16px;
-  border: 1.5px solid var(--palo-de-rosa);
-}
-
-.caja-cotizacion {
-  margin-top: 18px;
-  background-color: var(--color-crema);
-  color: var(--texto-principal);
-  border: 1.5px solid var(--rosa-pastel);
-  border-radius: 16px;
-  padding: 16px;
-  display: grid;
-  gap: 10px;
-}
-
-.btn-ws {
-  display: inline-block;
-  width: fit-content;
-  background-color: var(--palo-de-rosa);
-  color: var(--blanco);
-  text-decoration: none;
-  padding: 10px 16px;
-  border-radius: 12px;
-  font-weight: 700;
-}
-
-.btn-ws:hover {
-  background-color: var(--palo-de-rosa-oscuro);
-}
