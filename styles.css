@@ -141,4 +141,4 @@ select {
   font-weight: bold;
   color: #8f4660;
 }
-.imagen-hero {max-height: 400px; object-fit:cover;}
+.imagen-hero {max-height: 100px; object-fit:cover;}
